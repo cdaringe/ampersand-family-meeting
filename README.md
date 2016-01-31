@@ -2,6 +2,8 @@
 
 gather round, all.  we must be on our best behavior.
 
+<img src="https://raw.githubusercontent.com/cdaringe/ampersand-family-meeting/master/img/hold-hands.png" height="100px" />
+
 ## what
 
 applies batch updates to _all_ `ampersand-*` by means of PRs.
