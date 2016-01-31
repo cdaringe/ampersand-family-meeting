@@ -4,7 +4,8 @@
   "description": "distribute PRs in bulk to ampersand-js packages",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "node test/",
+    "lintfix": "standard --format src/**/*.js test/**/*.js",
     "lint": "standard src/**/*.js test/**/*.js"
   },
   "author": "",
