@@ -2,7 +2,7 @@ var path = require('path')
 var repositoryDir = require('./config').repositoryDir
 var exec = require('child_process').exec
 var logger = require('./logger.js')
-var github = require('github');
+// var github = require('github')
 var async = require('async')
 
 var branchName = 'feature/unify-the-family'
@@ -72,31 +72,19 @@ module.exports = function (pkg, cb) {
   var commit = (cb) => {
     if (!branchName) return cb(new ReferenceError('missing `branchName`'))
     exec('git commit -m "deploy ' + branchName + '"', { cwd: pkgDir }, (err, stdout) => {
-        if (err) {
-            if (stdout.match(/directory clean/)) {
-                return cb();
-            }
-            return cb(err);
+      if (err) {
+        if (stdout.match(/directory clean/)) {
+          return cb()
         }
-        cb();
+        return cb(err)
+      }
+      cb()
     })
   }
 
   var pr = (cb) => {
     if (!branchName) return cb(new ReferenceError('missing `branchName`'))
-    // http://mikedeboer.github.io/node-github/#pullRequests.prototype.create
-    // pullRequests#create(msg, callback)null
-    // msgObjectObject that contains the parameters and their values to be sent to the server.
-    // callbackFunctionfunction to call when the request is finished with an error as first argument and result data as second argument.
-    // Params on the msg object:
-    // headers (Object): Optional. Key/ value pair of request headers to pass along with the HTTP request. Valid headers are: 'If-Modified-Since', 'If-None-Match', 'Cookie', 'User-Agent', 'Accept', 'X-GitHub-OTP'.
-    // user (String): Required.
-    // repo (String): Required.
-    // title (String): Required.
-    // body (String): Optional.
-    // base (String): Required. The branch (or git ref) you want your changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repo that requests a merge to a base of another repo.
-    // head (String): Required. The branch (or git ref) where your changes are implemented.
-
+    setTimeout(function () {}, 0)
   }
 
   async.series(

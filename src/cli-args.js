@@ -9,6 +9,6 @@ program
   .parse(process.argv)
 
 if (!program.githubToken) {
-  throw new ReferenceError('no github token provided.  PR submission will fail');
+  throw new ReferenceError('no github token provided.  PR submission will fail')
 }
 module.exports = program
