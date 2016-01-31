@@ -1,0 +1,26 @@
+{
+  "name": "ampersand-family-meeting",
+  "version": "0.0.0",
+  "description": "distribute PRs in bulk to ampersand-js packages",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.2",
+    "commander": "^2.9.0",
+    "lodash": "^4.0.1",
+    "mkdirp": "^0.5.1",
+    "node-localstorage": "^1.1.2",
+    "npm-registry-client": "^7.0.9",
+    "octonode": "^0.7.4",
+    "prompt": "^0.2.14",
+    "tape": "^4.4.0",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1"
+  }
+}
