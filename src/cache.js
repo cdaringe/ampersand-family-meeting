@@ -1,7 +1,7 @@
 var path = require('path');
 var config = require('./config.js');
 var LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage(path.join(config.cacheDir));
+var localStorage = new LocalStorage(path.join(config.cacheDir));
 
 module.exports = {
     get: function(key) {
