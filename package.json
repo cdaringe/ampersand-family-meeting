@@ -1,7 +1,7 @@
 {
   "name": "ampersand-family-meeting",
   "version": "0.0.0",
-  "description": "distribute PRs in bulk to ampersand-js packages",
+  "description": "bulk modify & distribute packages via PRs to ampersand-js ecosytem",
   "main": "src/index.js",
   "scripts": {
     "test": "node test/",
@@ -13,6 +13,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "commander": "^2.9.0",
+    "github": "^0.2.4",
     "lodash": "^4.0.1",
     "mkdirp": "^0.5.1",
     "node-localstorage": "^1.1.2",
@@ -27,7 +28,7 @@
     "standard": "^5.4.1"
   },
   "pre-commit": [
-      "lint",
-      "test"
+    "lint",
+    "test"
   ]
 }
