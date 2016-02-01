@@ -12,7 +12,7 @@ module.exports = function (opts, cb) {
   fs.readdir(opts.dir, function (err, files) {
     if (err) return cb(err)
     var ampersandDirs = _.filter(files, f => f.match(/^ampersand/))
-    var toClone = _.partial(_.without, opts.packages).apply(null, ampersandDirs)
-    cb(null, { toClone: toClone, toPull: ampersandDirs })
+    var nonExistant = _.partial(_.without, opts.packages).apply(null, ampersandDirs)
+    cb(null, { nonExistant: nonExistant, existant: ampersandDirs })
   })
 }

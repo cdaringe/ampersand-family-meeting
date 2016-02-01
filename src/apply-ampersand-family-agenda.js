@@ -2,7 +2,8 @@ var path = require('path')
 var repositoryDir = require('./config').repositoryDir
 var exec = require('child_process').exec
 var logger = require('./logger.js')
-// var github = require('github')
+var fs = require('fs')
+// var github = require('./github.js')
 var async = require('async')
 
 var branchName = 'feature/unify-the-family'
@@ -15,7 +16,7 @@ var retiredFiles = [
 var savePkgs = []
 
 var saveDevPkgs = [
-  'standard@5.4.1'
+  { name: 'standard', version: '5.4.1' }
 ]
 
 module.exports = function (pkg, cb) {
@@ -62,7 +63,17 @@ module.exports = function (pkg, cb) {
     // @TODO test more intelligently if package already installed to prevent npm call
     logger.verbose('saving npm dev packages', saveDevPkgs.join(' '), `(${pkg})`)
     if (!saveDevPkgs || !saveDevPkgs.length) return cb()
-    exec('npm i --save-dev ' + saveDevPkgs.join(' '), { cwd: pkgDir }, cb)
+    var pkgPath = path.join(pkgDir, 'package.json')
+    var pkg = require(pkgPath)
+    var tPkg
+    for (var i = 0; i < saveDevPkgs.length; i++) {
+      tPkg = saveDevPkgs[i]
+      if (!tPkg.name || !tPkg.version) {
+        return cb(new ReferenceError('package name or version missing'))
+      }
+      pkg.devDependencies[tPkg.name] = tPkg.version
+    }
+    fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2), cb)
   }
 
   var add = (cb) => {

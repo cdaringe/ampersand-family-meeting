@@ -4,10 +4,9 @@ var github = new GitHubApi({
 })
 var args = require('./cli-args')
 
-module.exports = {
-  github: github
-}
 github.authenticate({
   type: 'oauth',
-  token: args.token
+  token: args.githubToken
 })
+
+module.exports = github

@@ -21,5 +21,8 @@ configurably.
 1. some &-js packages really are _dead_.  most are alive.  see `ignore.js`, make sure you're down with it.
 1. check out the cli options.  see `src/cli-args` so you know what you have available.  After my first search and pull, I toggle on `--use-cache`, `--no-clone`, and `--no-pull` for obvious reasons
 1. decide how we need to update everyone.  see `src/apply-ampersand-family-agenda`.  hack it.
-1. run it.  `node src/index.js -t GH_API_TOKEN --log-level=debug --use-cache --no-clone --no-pull`
+1. run it.  `node src/index.js -t GH_API_TOKEN -u cdaringe --use-cache --no-clone --no-pull --log-level=debug`
     1. if you're installing `npm` deps in a gazillion packages, woof.  that can be slow.  i use nolan lawson's [local-npm](https://github.com/nolanlawson/local-npm) because it's dope!
+
+# TODO
+- --no-fork has no means of passing up the forked url

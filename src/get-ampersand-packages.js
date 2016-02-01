@@ -7,6 +7,7 @@ var cache = require('./cache.js')
 
 module.exports = function (cb) {
   if (args.useCache) {
+    logger.debug('using packages from cache', cache.get(PACKAGES))
     return cb(null, cache.get(PACKAGES))
   }
   logger.debug('searching for ampersand packages....')
