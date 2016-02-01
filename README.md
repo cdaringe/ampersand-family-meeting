@@ -13,8 +13,10 @@ applies batch updates to _all_ `ampersand-*` by means of PRs.
 configurably.
 
 1. `npm search`es for all &-js packages
-1. clones them, or pulls the latest (against master) // @TODO `checkout master` post clone, JIC
-1. modifies the repo.  adds files, adds deps. pushes a PR back up.
+1. forks them, clones them, pulls the latest on the default branch
+1. modifies the repo based on &-js team wishes
+2. commit changes
+3. issues a PR
 
 ## usage
 
@@ -25,4 +27,4 @@ configurably.
     1. if you're installing `npm` deps in a gazillion packages, woof.  that can be slow.  i use nolan lawson's [local-npm](https://github.com/nolanlawson/local-npm) because it's dope!
 
 # TODO
-- --no-fork has no means of passing up the forked url
+- --no-fork has no means of passing up the forked url.  cache fork urls
