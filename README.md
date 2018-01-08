@@ -1,5 +1,7 @@
 # ampersand-family-meeting
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cdaringe/ampersand-family-meeting.svg)](https://greenkeeper.io/)
+
 gather round, all.  we must be on our best behavior.
 
 <img src="https://raw.githubusercontent.com/cdaringe/ampersand-family-meeting/master/img/hold-hands.png" height="100px" />
